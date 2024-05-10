@@ -13,10 +13,8 @@ steps:
   - -xe
   - -c
   - |
-#Deploy the runtime
-    gcloud deploy apply --file deploy/delivery_pipeline_and_targets.yaml --region=europe-west1
-#Deploy the application
-    gcloud deploy releases create 'my_first_release' --delivery-pipeline=cicd-gke --region=europe-west1 --from-k8s-manifest=./kubernetes/manifest.yaml
+    gcloud deploy apply --file deploy/delivery_pipeline_and_targets.yaml --region=europe-west1 #Deploy the runtime
+    gcloud deploy releases create 'my_first_release' --delivery-pipeline=cicd-gke --region=europe-west1 --from-k8s-manifest=./kubernetes/manifest.yaml #Deploy the application
 
 options:
   logging: CLOUD_LOGGING_ONLY
