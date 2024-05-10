@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: my-container
-          image: $PROJECT_ID/my_image_name
+          image: gke-test-422915/flask-image
           ports:
             - containerPort: 8080
 # Service config
