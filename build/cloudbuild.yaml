@@ -1,10 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'europe-west1-docker.pkg.dev/gke-test-422915/my_repo/app', './app']
+  args: ['build', '-t', 'europe-west1-docker.pkg.dev/gke-test-422915/my_repo/flask-image', './app']
   id: 'Build Docker Image'
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'europe-west1-docker.pkg.dev/gke-test-422915/my_repo/app']
+  args: ['push', 'europe-west1-docker.pkg.dev/gke-test-422915/my_repo/flask-image']
   id: 'Push Docker Image'
 
 - name: 'google/cloud-sdk:latest'
