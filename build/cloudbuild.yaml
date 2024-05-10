@@ -1,0 +1,25 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', '$_AR_HOSTNAME/$PROJECT_ID/$_AR_REPO/$_SERVICE_NAME:$COMMIT_SHA', './app']
+  id: 'Build Docker Image'
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', '$PROJECT_ID/my_image_name']
+  id: 'Push Docker Image'
+
+- name: 'google/cloud-sdk:latest'
+  entrypoint: 'sh'
+  args:
+  - -xe
+  - -c
+  - |
+#Deploy the runtime
+    gcloud deploy apply --file deploy/delivery_pipeline_and_targets.yaml --region=europe-west1
+#Deploy the application
+    gcloud deploy releases create 'my_first_release' --delivery-pipeline=cicd-gke --region=europe-west1 --from-k8s-manifest=./kubernetes/manifest.yaml
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+
+

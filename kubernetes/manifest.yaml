@@ -1,7 +1,8 @@
+# Deployment config
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my_deployment
+  name: my-deployment
 spec:
   replicas: 3
   selector:
@@ -14,14 +15,14 @@ spec:
     spec:
       containers:
         - name: my-container
-          image: us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image
+          image: $PROJECT_ID/my_image_name
           ports:
             - containerPort: 8080
-
+# Service config
 apiVersion: v1
 kind: Service
 metadata:
-  name: my_service
+  name: my-service
 spec:
   selector:
     app: my-app

@@ -1,0 +1,34 @@
+# Delivery pipeline config
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+  name: cicd-gke
+  labels:
+    app: cicd
+description: Configuration of the delivery pipeline
+serialPipeline:
+  stages:
+  - targetId: dev
+  - targetId: prod
+
+# Target config
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: dev
+  annotations: {}
+  labels: {}
+description: App Deployment in development environment
+gke:
+  cluster: projects/gke-test/locations/europe-west1/clusters/[cluster_name]
+
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: prod
+  annotations: {}
+  labels: {}
+description: App Deployment in production environment
+requireApproval: true
+gke:
+  cluster: projects/gke-test/locations/europe-west1/clusters/[cluster_name]
