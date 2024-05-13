@@ -2,16 +2,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deployment
+  name: my-deployment-for-app-greetings
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: my-app
+      app: my-app-greetings
   template:
     metadata:
       labels:
-        app: my-app
+        app: my-app-greetings
     spec:
       containers:
       - name: my-container
@@ -23,10 +23,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: my-service-for-app-greetings
 spec:
   selector:
-    app: my-app
+    app: my-app-greetings
   ports:
     - protocol: TCP
       port: 8081

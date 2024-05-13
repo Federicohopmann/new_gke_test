@@ -2,31 +2,30 @@
 apiVersion: deploy.cloud.google.com/v1
 kind: DeliveryPipeline
 metadata:
-  name: my_del_pi
+  name: my-gke-demo-app-1
 description: My configuration of the delivery pipeline
 serialPipeline:
   stages:
   - targetId: dev
-  - targetId: prod
-
+    profiles: []
+  - targetId: prd
+    profiles: []
+---
 # Target config
 apiVersion: deploy.cloud.google.com/v1
 kind: Target
 metadata:
   name: dev
-  annotations: {}
-  labels: {}
 description: App Deployment in development environment
 gke:
-  cluster: projects/gke-test/locations/europe-west1/clusters/my_dev_cluster
+  cluster: projects/gke-test-422915/locations/europe-west1/clusters/quickstart-cluster-dev
+---
 
 apiVersion: deploy.cloud.google.com/v1
 kind: Target
 metadata:
-  name: prod
-  annotations: {}
-  labels: {}
+  name: prd
 description: App Deployment in production environment
 requireApproval: true
 gke:
-  cluster: projects/gke-test/locations/europe-west1/clusters/my_prd_cluster
+  cluster: projects/gke-test-422915/locations/europe-west1/clusters/quickstart-cluster-prd

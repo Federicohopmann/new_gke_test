@@ -13,8 +13,8 @@ steps:
   - -xe
   - -c
   - |
-    gcloud deploy apply --file deploy/clouddeploysecond.yaml --region=europe-west1
-    gcloud deploy releases create 'my-third-release' --delivery-pipeline=my-gke-demo-app-1 --region=europe-west1 --from-k8s-manifest=./kubernetes/manifest.yaml
+    gcloud deploy apply --file deploy/clouddeploy.yaml --region=europe-west1
+    gcloud deploy releases create 'my-fourth-release' --delivery-pipeline=my-gke-demo-app-1 --region=europe-west1 --from-k8s-manifest=./kubernetes/manifest.yaml
 
 options:
   logging: CLOUD_LOGGING_ONLY
