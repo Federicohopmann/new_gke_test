@@ -13,6 +13,7 @@ steps:
   - -xe
   - -c
   - |
+    gcloud container clusters create-auto quickstart-cluster-qsdev --project=PROJECT_ID --region=us-central1 && gcloud container clusters create-auto quickstart-cluster-qsprod --project=PROJECT_ID --region=us-central1
     gcloud deploy apply --file deploy/clouddeploysecond.yaml --region=europe-west1
     gcloud deploy releases create 'my-first-release' --delivery-pipeline=my-gke-demo-app-1 --region=europe-west1 --from-k8s-manifest=./kubernetes/manifest.yaml
 

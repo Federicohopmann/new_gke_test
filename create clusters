@@ -1,0 +1,2 @@
+gcloud container clusters create-auto quickstart-cluster-qsdev --project=gke-test-422915 --region=europe-west1
+gcloud container clusters create-auto quickstart-cluster-qsprodkube --project=gke-test-422915 --region=europe-west1
