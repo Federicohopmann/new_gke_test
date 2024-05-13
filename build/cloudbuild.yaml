@@ -13,7 +13,7 @@ steps:
   - -xe
   - -c
   - |
-    gcloud deploy apply --file deploy/clouddeploy.yaml --region=europe-west1
+    gcloud deploy apply --file deploy/clouddeploysecond.yaml --region=europe-west1
     gcloud deploy releases create 'my_first_release' --delivery-pipeline=my_del_pip --region=europe-west1 --from-k8s-manifest=./kubernetes/manifest.yaml
 
 options:
