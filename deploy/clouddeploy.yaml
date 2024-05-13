@@ -16,7 +16,7 @@ metadata:
   name: dev
   annotations: {}
   labels: {}
-description: App Deployment in development environment
+description: App Deployment in development environmen
 gke:
   cluster: projects/gke-test/locations/europe-west1/clusters/my_dev_cluster
 
