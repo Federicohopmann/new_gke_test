@@ -14,7 +14,7 @@ steps:
   - -c
   - |
     gcloud deploy apply --file deploy/clouddeploy.yaml --region=europe-west1
-    gcloud deploy releases create 'my-fifth-release' --delivery-pipeline=my-gke-demo-app-1 --region=europe-west1 --from-k8s-manifest=./kubernetes/manifest.yaml
+    gcloud deploy releases create 'my-sixth-release' --delivery-pipeline=my-gke-demo-app-1 --region=europe-west1 --from-k8s-manifest=./kubernetes/manifest.yaml
 
 options:
   logging: CLOUD_LOGGING_ONLY
